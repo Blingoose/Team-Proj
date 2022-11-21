@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function Game() {
   return (
     <div>
-        <img src="Images/card.png" alt="card" />
+      <img src="Images/card.png" alt="card" />
     </div>
-  )
+  );
 }
 
-export default Game
+export default Game;
