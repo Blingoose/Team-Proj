@@ -6,6 +6,7 @@ import GlobalGameContext from "./GameContext.jsx/GlobalGameContext";
 import { Timer } from "./components/Timer";
 
 function App() {
+
   return (
     <GlobalGameContext>
       <Router>
