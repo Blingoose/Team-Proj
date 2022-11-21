@@ -4,29 +4,27 @@ import "./game.css";
 import { Timer } from "./Timer";
 import { useContext } from "react";
 import { GameContext } from "../GameContext.jsx/GlobalGameContext";
-
+import FlippableCard from "./FlippableCard";
 
 function Game() {
+
   const { cardsData, setCardsData } = useContext(GameContext);
-  const [pairOfCards, setPairOfCards] = useState([])
+  const [pairOfCards, setPairOfCards] = useState([]);
+  const [flip, setFlip] = useState('')
 
-
-  function findPair(card){
-    if (pairOfCards.length<2){
-        setPairOfCards((prev)=>[...prev,card])
-        checkForMatch()
-    } 
-    else if(pairOfCards.length===2){
-        setPairOfCards([])
+  function findPair(card) {
+    if (pairOfCards.length < 2) {
+      setPairOfCards((prev) => [...prev, card]);
+      checkForMatch();
+    } else if (pairOfCards.length === 2) {
+      setPairOfCards([]);
     }
     console.log(pairOfCards);
-
-    
   }
 
-  function checkForMatch(){
-    if (pairOfCards[0]===pairOfCards[1]){
-        console.log('Its A match');
+  function checkForMatch() {
+    if (pairOfCards[0] !== pairOfCards[1]) {
+      console.log("Its A loss");
     }
   }
 
@@ -35,30 +33,39 @@ function Game() {
       const current = cardsData.find((item) => item.id === id);
       if (!current.flipped) {
         setCardsData((prev) => {
-            return prev.map((card) => { 
-              if (card.id===current.id){
-              return {...card, flipped:!card.flipped}
-            } return card
-          }
-          );
+          return prev.map((card) => {
+            if (card.id === current.id) {
+              return { ...card, flipped: !card.flipped };
+            }
+            return card;
           });
-      } 
-    //   else {
-    //     setCardsData((prev) => {
-    //       return prev.map((card) => { 
-    //         if (card.id===current.id){
-    //         return {...card, flipped:!card.flipped}
-    //       } return card
-    //     }
-    //     );
-    //     });
-    //   }
+        });
+      }
+
+     
+      //   else {
+      //     setCardsData((prev) => {
+      //       return prev.map((card) => {
+      //         if (card.id===current.id){
+      //         return {...card, flipped:!card.flipped}
+      //       } return card
+      //     }
+      //     );
+      //     });
+      //   }
     } catch (error) {
       console.log(error);
       // setError(error)
     }
   }
 
+
+  function getFlip (flip) {
+    setFlip((prev)=>prev=flip)
+    return flip
+  }
+
+  
   return (
     <div className="fullPageContainer">
       <h1 className="narutoGameTitle">
@@ -67,19 +74,17 @@ function Game() {
       <div className="game-ui d-flex a-center">
         <div className="img-container">
           {cardsData.map((card) => {
-            // card,card
-
             return (
-              <img
-              key={card.id}
+              <FlippableCard
+              getFlip={getFlip}
+                key={card.id}
                 id={card.id}
+                image={card.image}
+                flipped={card.flipped}
                 onClick={() => {
-                    findPair(card.name)
+                  findPair(card.name);
                   flipCard(card.id);
                 }}
-                className="img-card"
-                src={`Images/${card.flipped ? card.name : "Uchiha"}.jpg`}
-                alt="card"
               />
             );
           })}

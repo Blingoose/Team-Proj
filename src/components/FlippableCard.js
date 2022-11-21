@@ -3,12 +3,13 @@ import Card from "./card/Card";
 import { CSSTransition } from "react-transition-group";
 import { useState } from "react";
 
-function FlippableCard() {
-  const [flip, setFlip] = useState(true);
+function FlippableCard({getFlip,onClick, image}) {
+  const [flip, setFlip] = useState(false)
   return (
-    <div className="flippable-card-container">
-      <CSSTransition in={flip} timeout={1100} classNames="flip">
-        <Card
+    <div onClick={onClick} className="flippable-card-container">
+      <CSSTransition in={flip} timeout={5000} classNames="flip">
+        <Card flip={getFlip(flip)}
+        image={image}
           onClick={() => {
             setFlip((v) => !v);
           }}
