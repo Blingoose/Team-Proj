@@ -26,6 +26,7 @@ function GlobalGameContext({children}) {
   return (
     <GameContext.Provider value={{
         cardsData,
+        setCardsData,
         error,
     }}>
         {children}
