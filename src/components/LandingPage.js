@@ -1,11 +1,12 @@
 import React from "react";
 import Button from "./Button";
 import styles from "./LandingPage.module.css";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
     <div className={styles["landing-main-container"]}>
-      <Button />
+      <Link to={'/game'}><Button>Start Game</Button></Link>
       <div></div>
       <p className={styles["game-quote"]}>
         “In this world, wherever there is light – there are also shadows. As

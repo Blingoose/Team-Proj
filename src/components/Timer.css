@@ -1,6 +1,7 @@
 .timer{
     font-family: sans-serif;
     display: inline-block;
+    height: 6rem;
     padding: 24px 32px;
     background-color: rgb(173, 173, 173);
     border-radius: 2rem;

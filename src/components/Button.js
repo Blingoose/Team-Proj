@@ -1,15 +1,12 @@
 import React from "react";
 import styles from "../components/Button.module.css";
 
-const Button = () => {
+const Button = ({children, onClick}) => {
   return (
-    <div class={styles.container}>
-      <button>
-        <span>Button</span>
+    <div className={styles.container}>
+      <button onClick={onClick?onClick:null}>
+        <span>{children}</span>
       </button>
-      {/* <button>
-        <span>Button</span>
-      </button> */}
     </div>
   );
 };

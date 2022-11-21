@@ -4,7 +4,6 @@
   right: 50%;
 }
 
-@import url("htpps://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
 * {
   margin: 0;
   padding: 0;
@@ -13,8 +12,7 @@
 }
 
 .container {
-  position: absolute;
-  top: 60%;
+  position: relative;
   left: 20%;
   display: flex;
   justify-content: center;

@@ -3,7 +3,7 @@ import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import Game from "./components/Game";
 
 import GlobalGameContext from "./GameContext.jsx/GlobalGameContext";
-import { Timer } from "./components/Timer";
+import LandingPage from './components/LandingPage'
 
 function App() {
 
@@ -11,8 +11,8 @@ function App() {
     <GlobalGameContext>
       <Router>
         <Routes>
-          {/* <Route path={'/'} element={ <LandingPage/>}/> */}
-          <Route path={"/"} element={<Timer />} />
+          <Route path={'/'} element={ <LandingPage/>}/>
+          <Route path={'/game'} element={ <Game/>}/>
         </Routes>
       </Router>
     </GlobalGameContext>

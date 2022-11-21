@@ -1,19 +1,18 @@
 
 .fullPageContainer{
-    height: 100vh;
+    min-height: 100vh;
     background-color: rgb(24, 23, 23);
     padding: 1em 0;
 }
 .img-container{
+    margin-top: 4rem;
     display: flex;
     flex-wrap: wrap;
-    max-width: 65em;
+    max-width: 55vmax;
     justify-content: center;
     align-content: center;
     margin-bottom: 1em;
-    
-    
-
+    margin: 0 auto;
 }
 .narutoGameTitle{
     margin: 0;
@@ -29,9 +28,9 @@
     font-size: 30px;
 }
 .img-card{
-    width: 200px;
+    height: 200px;
     margin-left: 1em;
     border: 1px solid rgb(84, 176, 238);
     margin-top: 2em;
-    
+    box-shadow: 5px 5px 3px rgba(255, 255, 255, 0.568);
 }
