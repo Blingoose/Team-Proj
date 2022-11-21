@@ -1,0 +1,37 @@
+
+.fullPageContainer{
+    height: 100vh;
+    background-color: rgb(24, 23, 23);
+    padding: 1em 0;
+}
+.img-container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 65em;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 1em;
+    
+    
+
+}
+.narutoGameTitle{
+    margin: 0;
+    padding: 0;
+    font-family: 'Bree Serif', serif;
+    color: rgb(233, 244, 250);
+    font-size: 22px;
+    text-transform: uppercase;
+}
+.narutoGameTitle span{
+    color: rgb(59, 121, 201);
+    font-family: 'Bree Serif', serif;
+    font-size: 30px;
+}
+.img-card{
+    width: 200px;
+    margin-left: 1em;
+    border: 1px solid rgb(84, 176, 238);
+    margin-top: 2em;
+    
+}
