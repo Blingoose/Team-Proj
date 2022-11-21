@@ -1,36 +1,36 @@
-
-.fullPageContainer{
-    min-height: 100vh;
-    background-color: rgb(24, 23, 23);
-    padding: 1em 0;
+.fullPageContainer {
+  min-height: 100vh;
+  background-color: rgb(24, 23, 23);
+  padding: 1em 0;
 }
-.img-container{
-    margin-top: 4rem;
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 55vmax;
-    justify-content: center;
-    align-content: center;
-    margin-bottom: 1em;
-    margin: 0 auto;
+.img-container {
+  margin-top: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 55vmax;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 1em;
+  margin: 0 auto;
 }
-.narutoGameTitle{
-    margin: 0;
-    padding: 0;
-    font-family: 'Bree Serif', serif;
-    color: rgb(233, 244, 250);
-    font-size: 22px;
-    text-transform: uppercase;
+.narutoGameTitle {
+  margin: 0;
+  padding: 0;
+  font-family: "Bree Serif", serif;
+  color: rgb(233, 244, 250);
+  font-size: 22px;
+  text-transform: uppercase;
 }
-.narutoGameTitle span{
-    color: rgb(59, 121, 201);
-    font-family: 'Bree Serif', serif;
-    font-size: 30px;
+.narutoGameTitle span {
+  color: rgb(59, 121, 201);
+  font-family: "Bree Serif", serif;
+  font-size: 30px;
 }
-.img-card{
-    height: 200px;
-    margin-left: 1em;
-    border: 1px solid rgb(84, 176, 238);
-    margin-top: 2em;
-    box-shadow: 5px 5px 3px rgba(255, 255, 255, 0.568);
+.img-card {
+  height: 200px;
+  margin-left: 1em;
+  border: 1px solid rgb(84, 176, 238);
+  margin-top: 2em;
+  box-shadow: 1px 1px 3px 1px rgba(0, 180, 180, 0.468);
+  border-radius: 5px;
 }
