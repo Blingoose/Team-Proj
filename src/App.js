@@ -1,7 +1,6 @@
 import "./App.css";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import Game from "./components/Game";
-
 import GlobalGameContext from "./GameContext.jsx/GlobalGameContext";
 import LandingPage from './components/LandingPage'
 
