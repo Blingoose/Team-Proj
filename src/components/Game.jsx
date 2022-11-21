@@ -1,109 +1,91 @@
+import React from "react";
+import { useState } from "react";
+import "./game.css";
+import { Timer } from "./Timer";
+import { useContext } from "react";
+import { GameContext } from "../GameContext.jsx/GlobalGameContext";
 
-
-
-import React from 'react'
-import { useState } from 'react'
-import './game.css'
-import { Timer } from './Timer'
-import { useContext } from 'react'
-import { GameContext } from '../GameContext.jsx/GlobalGameContext'
-import axios from 'axios'
 
 function Game() {
-    const {cardsData,setCardsData } = useContext(GameContext)
-    const [arr, setArr] = useState([])
+  const { cardsData, setCardsData } = useContext(GameContext);
+  const [pairOfCards, setPairOfCards] = useState([])
 
 
-    cardsData.map(e=>console.log(e))
-
-    // const [flipped,setFlipped] = useState(false)
-    // const [cards,setCards] = useState([])
-    const imgArr = ['Hinata', 'Kakashi', 'Nagato', 'Naruto', 'Obito', 'Sasuke']
-
-    async function flipCard(id){
-
-        try{
-            const current = cardsData.find((item)=> item.id===id)
-            if(!current.flipped){
-                const {data} = await axios.put(`https://6373a9b9348e94729912f2b1.mockapi.io/crudMock/cardGame/${id}`,{
-                 flipped: true
-        })
-            // console.dir(data)
-            setCardsData(prev=>{
-                return prev.map(card=> data.name === card.name? data : card)
-            })
-            
-            
-            
-            }else{
-                const {data} = await axios.put(`https://6373a9b9348e94729912f2b1.mockapi.io/crudMock/cardGame/${id}`,{
-                    flipped: false
-           })
-           setCardsData(prev=>{
-            return prev.map(card=> data.name === card.name? data : card)
-        })
-            }
-        }catch(error){
-            console.log(error);
-            // setError(error)
-        }
+  function findPair(card){
+    if (pairOfCards.length<2){
+        setPairOfCards((prev)=>[...prev,card])
+        checkForMatch()
+    } 
+    else if(pairOfCards.length===2){
+        setPairOfCards([])
     }
-// console.log(cardsData.id);/
-   const randomazier = (array)=>{
-    let arr = [...array]
-        for (let i = 0; i < array.length; i++) {
-            arr.push(array[i])
-            
-        }
-       
-         return  arr.map((el,index,array)=>{
-            return array[randomMath(arr.length)]
-          } )
-        
-   }
+    console.log(pairOfCards);
 
-//  cardsData.map(card=>{
-//      return card.m
-//  })
-randomazier(cardsData)
-function randomMath(num){
-    return Math.floor(Math.random()* num)
-}
+    
+  }
 
+  function checkForMatch(){
+    if (pairOfCards[0]===pairOfCards[1]){
+        console.log('Its A match');
+    }
+  }
+
+  async function flipCard(id) {
+    try {
+      const current = cardsData.find((item) => item.id === id);
+      if (!current.flipped) {
+        setCardsData((prev) => {
+            return prev.map((card) => { 
+              if (card.id===current.id){
+              return {...card, flipped:!card.flipped}
+            } return card
+          }
+          );
+          });
+      } 
+    //   else {
+    //     setCardsData((prev) => {
+    //       return prev.map((card) => { 
+    //         if (card.id===current.id){
+    //         return {...card, flipped:!card.flipped}
+    //       } return card
+    //     }
+    //     );
+    //     });
+    //   }
+    } catch (error) {
+      console.log(error);
+      // setError(error)
+    }
+  }
 
   return (
     <div className="fullPageContainer">
-        <h1 className="narutoGameTitle">
-          <span>Naruto</span> Ninjutso Card Game
-        </h1>
+      <h1 className="narutoGameTitle">
+        <span>Naruto</span> Ninjutso Card Game
+      </h1>
       <div className="game-ui d-flex a-center">
         <div className="img-container">
-
-            { 
-            randomazier(cardsData).map(card=>{
-
+          {cardsData.map((card) => {
             // card,card
-                
-            return(
-               
-                <img id={card.id} onClick={()=>{
-                    flipCard(card.id)
-                }} className="img-card" src={`Images/${card.flipped? card.name : 'Uchiha'}.jpg`}  alt="card" />
-                /* <img id={card.id} onClick={()=>{
-                    flipCard(card.id)
-                }} className="img-card" src={`Images/${card.flipped? card.name : 'Uchiha'}.jpg`}  alt="card" /> */
-                
 
-            )
-
-            
-
-           })
-           } 
-
+            return (
+              <img
+              key={card.id}
+                id={card.id}
+                onClick={() => {
+                    findPair(card.name)
+                  flipCard(card.id);
+                }}
+                className="img-card"
+                src={`Images/${card.flipped ? card.name : "Uchiha"}.jpg`}
+                alt="card"
+              />
+            );
+          })}
         </div>
         <Timer></Timer>
-        </div>
+      </div>
     </div>
   );
 }
