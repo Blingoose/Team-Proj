@@ -14,7 +14,7 @@ function App() {
           <Route path={'/'} element={ <Timer/>}/>
         </Routes>
       </Router>
-    </GlobalGameContext>
-  
+    </GlobalGameContext>)
+}
 
 export default App;
