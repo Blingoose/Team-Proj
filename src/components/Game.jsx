@@ -1,6 +1,9 @@
 import React from 'react'
+import { useState } from 'react'
 import './game.css'
 function Game() {
+
+    const [flipped,setFlipped] = useState(false)
   return (
     <div className='fullPageContainer'>
 
