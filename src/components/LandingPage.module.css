@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap");
+
+.landing-main-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/public/Images/landing-page.png");
+  background-size: cover;
+  background-position: top;
+}
+
+.game-quote {
+  overflow: hidden;
+  font-family: "Montserrat";
+  font-size: 30px;
+  padding: 30px;
+  position: absolute;
+  top: 20%;
+  right: 50%;
+  /* white-space: nowrap; */
+}
